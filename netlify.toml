@@ -1,7 +1,7 @@
 [build]
   base = "frontend"
   command = "npm run build"
-  publish = "frontend/out"
+  publish = "out"
 
 [build.environment]
   # Environment variables will be set in Netlify dashboard
