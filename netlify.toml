@@ -1,0 +1,27 @@
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "frontend/out"
+
+[build.environment]
+  # Environment variables will be set in Netlify dashboard
+  # NEXT_PUBLIC_API_URL will be configured for production
+  NODE_VERSION = "18"
+
+# Redirect rules (if needed)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for static assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
